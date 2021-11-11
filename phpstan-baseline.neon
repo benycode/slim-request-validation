@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method getArguments\\(\\) on Slim\\\\Interfaces\\\\RouteInterface\\|null\\.$#"
+			count: 1
+			path: src/RequestValidation.php
+

@@ -1,0 +1,64 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a84b4db0fc7814dc1cb69da4a59d3170",
+    "packages": [
+        {
+            "name": "rector/rector-prefixed",
+            "version": "0.8.52",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/rector-prefixed.git",
+                "reference": "8fdcacf3cf77f410d47ad4a80e9e9a07a293f958"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/rector-prefixed/zipball/8fdcacf3cf77f410d47ad4a80e9e9a07a293f958",
+                "reference": "8fdcacf3cf77f410d47ad4a80e9e9a07a293f958",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "conflict": {
+                "nikic/php-parser": "<4.7",
+                "phpstan/phpstan": "<0.12"
+            },
+            "replace": {
+                "rector/rector": "self.version"
+            },
+            "require-dev": {
+                "doctrine/orm": "^2.7"
+            },
+            "bin": [
+                "rector",
+                "rector.phar"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Prefixed version of Rector compiled in PHAR",
+            "support": {
+                "source": "https://github.com/rectorphp/rector-prefixed/tree/0.8.52"
+            },
+            "abandoned": "rector/rector",
+            "time": "2020-11-14T20:32:35+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^7.2.5"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
