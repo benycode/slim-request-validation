@@ -87,5 +87,16 @@ $app->post('/api/any_end_point',function ($req, $res, $args) {
 ]))	
 ;
 
+$app->post('/api/any_end_point2',function ($req, $res, $args) {
+ 
+})
+->add(new RequestValidationExceptionMiddleware(new RequestValidatorTransformFactory(), new JsonEncoder()))
+->add(new RequestValidation([
+	new AnyRuleClass(),
+	new AppendedRule3Class(),
+	....
+]))	
+;
+
 $app->run();
 ```
