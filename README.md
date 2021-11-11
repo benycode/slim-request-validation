@@ -1,6 +1,6 @@
 # Slim Framework Request Validation
 
-A **Request** validation library for the Slim 4 Framework. It uses [Respect/Validation][respect-validation] library.
+A **Request** validation library for the Slim 4 Framework. It uses [respect-validation](https://github.com/Respect/Validation) library.
 
 ## Table of contents
 
