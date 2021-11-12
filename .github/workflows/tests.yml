@@ -42,12 +42,4 @@ jobs:
           command: composer bin phpunit update --no-interaction --no-progress
 
       - name: Execute PHPUnit
-        env:
-          ONESIGN_ENPOINT: ${{ secrets.ONESIGN_ENPOINT }}
-          ONESIGN_TEST_USER: ${{ secrets.ONESIGN_TEST_USER }}
-          ONESIGN_PRIVATE_KEY_PASSPHRASE: ${{ secrets.ONESIGN_PRIVATE_KEY_PASSPHRASE }}
-          ONESIGN_PUBLIC_KEY: ${{ secrets.ONESIGN_PUBLIC_KEY }}
-          ONESIGN_PRIVATE_KEY: ${{ secrets.ONESIGN_PRIVATE_KEY }}
-          ONESIGN_TEST_USER_WITHOUT_PASS: ${{ secrets.ONESIGN_TEST_USER_WITHOUT_PASS }}
-          ONESIGN_PRIVATE_KEY_WITHOUT_PASS: ${{ secrets.ONESIGN_PRIVATE_KEY_WITHOUT_PASS }}
         run: vendor/bin/phpunit
