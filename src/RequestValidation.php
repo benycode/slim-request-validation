@@ -13,6 +13,8 @@ use Slim\Routing\RouteContext;
 
 class RequestValidation
 {
+    protected array $rules = [];
+    
     protected array $validators = [];
     
     protected array $messages = [];
@@ -33,24 +35,26 @@ class RequestValidation
 
     protected string $translator_name = 'translator';
 
-    public function __construct(array $validators)
+    public function __construct(array $rules)
     {
-        if ((bool) $validators) {
+        $this->rules = $rules;
+    }
+
+    public function __invoke(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+    {
+        if ((bool) $this->rules) {
             /** @var RequestValidationRuleInterface $validator */
-            foreach ($validators as $validator) {
-                $this->validators = \array_merge($this->validators, $validator->rules());
-                if ((bool) $validator->messages()) {
-                    $this->messages = \array_merge($this->messages, $validator->messages());
+            foreach ($this->rules as $rule) {
+                $this->validators = \array_merge($this->validators, $rule->rules());
+                if ((bool) $rule->messages()) {
+                    $this->messages = \array_merge($this->messages, $rule->messages());
                 }
             }
         } else {
             $this->validators = [];
             $this->messages = [];
         }
-    }
-
-    public function __invoke(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
-    {
+        
         $this->errors = [];
         $params = $request->getParsedBody();
 
