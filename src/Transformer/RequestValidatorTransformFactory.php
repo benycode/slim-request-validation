@@ -13,5 +13,5 @@ final class RequestValidatorTransformFactory implements ResultTransformerInterfa
         ];
     }
     
-    public function setLocale(string $locale): self;
+    public function setLocale(?string $locale = null): self;
 }
