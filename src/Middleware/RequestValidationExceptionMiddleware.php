@@ -33,11 +33,29 @@ final class RequestValidationExceptionMiddleware implements MiddlewareInterface
                 ->withStatus(StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY)
                 ->withHeader('Content-Type', $this->encoder->getContentType());
 
-            $errors = (array) $request->getAttribute('errors');
+            $errors = (array) $request
+                ->getAttribute('errors')
+            ;
             
-            $data = $this->transformer->transform($errors);
-            $content = $this->encoder->encode($data);
-            $response->getBody()->write($content);
+            $locale = $request
+                ->getAttribute('accept-language')
+            ;
+            
+            $data = $this
+                ->transformer
+                ->setLocale($locale)
+                ->transform($errors)
+            ;
+            
+            $content = $this
+                ->encoder
+                ->encode($data)
+            ;
+            
+            $response
+                ->getBody()
+                ->write($content)
+            ;
 
             return $response;
         }
