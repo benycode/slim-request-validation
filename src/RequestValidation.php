@@ -42,12 +42,16 @@ class RequestValidation
 
     public function __invoke(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
+        $language = $request
+            ->getAttribute('accept-language')
+        ;
+        
         if ((bool) $this->rules) {
             /** @var RequestValidationRuleInterface $validator */
             foreach ($this->rules as $rule) {
                 $this->validators = \array_merge($this->validators, $rule->rules());
                 if ((bool) $rule->messages()) {
-                    $this->messages = \array_merge($this->messages, $rule->messages());
+                    $this->messages = \array_merge($this->messages, $rule->messages($language));
                 }
             }
         } else {
