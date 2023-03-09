@@ -7,5 +7,5 @@ interface RequestValidationRuleInterface
 {
     public function rules(): array;
    
-    public function messages(): array;
+    public function messages(string $locale = null): array;
 }
