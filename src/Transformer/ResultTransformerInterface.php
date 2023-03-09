@@ -7,5 +7,5 @@ interface ResultTransformerInterface
 {
     public function transform(array $errors): array;
     
-    public function setLocale(string $locale): self;
+    public function setLocale(?string $locale = null): self;
 }
