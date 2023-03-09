@@ -50,8 +50,8 @@ class RequestValidation
             /** @var RequestValidationRuleInterface $validator */
             foreach ($this->rules as $rule) {
                 $this->validators = \array_merge($this->validators, $rule->rules());
-                if ((bool) $rule->messages()) {
-                    $this->messages = \array_merge($this->messages, $rule->messages($language));
+                if ((bool)$messages = $rule->messages($language)) {
+                    $this->messages = \array_merge($this->messages, $messages);
                 }
             }
         } else {
