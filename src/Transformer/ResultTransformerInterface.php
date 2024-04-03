@@ -6,6 +6,4 @@ namespace BenyCode\Slim\Validation\Transformer;
 interface ResultTransformerInterface
 {
     public function transform(array $errors): array;
-    
-    public function setLocale(): self;
 }
