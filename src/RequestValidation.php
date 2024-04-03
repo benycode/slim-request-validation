@@ -41,16 +41,12 @@ class RequestValidation
     }
 
     public function __invoke(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
-    {
-        $locale = $request
-            ->getAttribute('accept-language')
-        ;
-        
+    {        
         if ((bool) $this->rules) {
             /** @var RequestValidationRuleInterface $validator */
             foreach ($this->rules as $rule) {
                 $this->validators = \array_merge($this->validators, $rule->rules());
-                if ((bool)$messages = $rule->messages($locale)) {
+                if ((bool)$messages = $rule->messages()) {
                     $this->messages = \array_merge($this->messages, $messages);
                 }
             }
