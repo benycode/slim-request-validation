@@ -11,7 +11,7 @@ final class RequestValidatorTransformFactory implements ResultTransformerInterfa
     public function transform(array $errors): array
     {
         return [
-            'message' => is_null(this->message) ? 'Please check your input' : $this->message,
+            'message' => is_null($this->message) ? 'Please check your input' : $this->message,
             'error' => $errors,
         ];
     }
