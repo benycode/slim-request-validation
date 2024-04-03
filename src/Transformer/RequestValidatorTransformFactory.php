@@ -5,10 +5,14 @@ namespace BenyCode\Slim\Validation\Transformer;
 
 final class RequestValidatorTransformFactory implements ResultTransformerInterface
 {
+    public function __construct(?private string $message = null) {
+        print "In BaseClass constructor\n";
+    }
+    
     public function transform(array $errors): array
     {
         return [
-            'message' => 'Please check your input',
+            'message' => is_null(this->message) ? 'Please check your input' : this->message,
             'error' => $errors,
         ];
     }
