@@ -5,8 +5,7 @@ namespace BenyCode\Slim\Validation\Transformer;
 
 final class RequestValidatorTransformFactory implements ResultTransformerInterface
 {
-    public function __construct(?private string $message = null) {
-        print "In BaseClass constructor\n";
+    public function __construct(protected ?string $message = null) {
     }
     
     public function transform(array $errors): array
