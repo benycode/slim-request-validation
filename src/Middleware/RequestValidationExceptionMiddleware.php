@@ -36,14 +36,9 @@ final class RequestValidationExceptionMiddleware implements MiddlewareInterface
             $errors = (array) $request
                 ->getAttribute('errors')
             ;
-            
-            $locale = $request
-                ->getAttribute('accept-language')
-            ;
-            
+                        
             $data = $this
                 ->transformer
-                ->setLocale($locale)
                 ->transform($errors)
             ;
             
